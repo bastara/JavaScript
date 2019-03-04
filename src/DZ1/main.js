@@ -32,15 +32,15 @@ console.log();
 // •Создайте массив чисел от 1 до 100, в таком порядке
 console.log("Создайте массив чисел от 1 до 100, в таком порядке");
 var list100 = [];
-arr100(list100, 100);
+fillingOfArray(list100, 100);
 console.log(list100);
 //•Получите список квадратов четных чисел из этого массива
 console.log("Получите список квадратов четных чисел из этого массива");
-var arrayPow2 = pow2(list100);
-console.log(arrayPow2);
+var arrayNumbersPow2 = pow2(list100);
+console.log(arrayNumbersPow2);
 
 
-function arr100(arr, n) {
+function fillingOfArray(arr, n) {
     for (var i = 0; i < n; i++) {
         // arr.push(i + 1);
         arr[i] = i + 1;

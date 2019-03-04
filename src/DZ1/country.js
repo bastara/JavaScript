@@ -82,7 +82,7 @@ var country = [russia, usa, france];
 
 // •Найдите страну/страны с максимальным количеством городов
 console.log("Страны с максимальным количеством городов:");
-contryWithMaxNumberOfCity(country);
+countryWithMaxNumberOfCity(country);
 
 
 // Получите объект с информацией по всем странам такого вида: ключ –название страны, значение –суммарная численность по стране
@@ -94,7 +94,7 @@ console.log(countryInfo);
 
 
 function getCountryInfo(array) {
-    function getPopulatoin(city) {
+    function getPopulation(city) {
         var population = 0;
         for (var i = 0; i < city.length; i++) {
             population += city[i].population;
@@ -103,11 +103,11 @@ function getCountryInfo(array) {
     }
 
     for (var i = 0; i < array.length; i++) {
-        countryInfo[array[i].name] = getPopulatoin(array[i].city);
+        countryInfo[array[i].name] = getPopulation(array[i].city);
     }
 }
 
-function contryWithMaxNumberOfCity(array) {
+function countryWithMaxNumberOfCity(array) {
     var count = 0;
     for (i = 0; i < array.length; i++) {
         if (count < array[i].city.length) {
