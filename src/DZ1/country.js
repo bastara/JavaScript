@@ -86,11 +86,10 @@ countryWithMaxNumberOfCity(country);
 
 
 // Получите объект с информацией по всем странам такого вида: ключ –название страны, значение –суммарная численность по стране
-var countryInfo={};
+var countryInfo = {};
 
 getCountryInfo(country);
 console.log(countryInfo);
-
 
 
 function getCountryInfo(array) {
