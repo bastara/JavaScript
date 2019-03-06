@@ -44,20 +44,20 @@ console.log(arrayNumbersPow2);
 console.log();
 console.log();
 
-function getArrayPow2(arr, n) {//если я правильно понял то в этом месте нельзя использовать ни один встроенный метод?
+function getArrayPow2(arr, n) {
     for (var i = 1; i <= n; i++) {
         arr.push(i);
     }
 }
 
-function pow2(arr) {//аналогично 48 строчке, встроенные методы тут не применимы ... Или еще подумать?
-    var array = [];//я понимаю что массив pow2 тут так же видно но решил сделать отдельный массив, заполнить его и потом его присвоить основному массиву.
-    var count = 0;
-    for (var i = 0; i < 100; i++) {
-        if (getEven(arr[i])) {
-            array[count] = arr[i] * arr[i];
-            count++;
-        }
-    }
-    return array;
+function pow2(arr) {
+    var array = arr.filter(function (elem) {
+        return elem % 2 === 0;
+    });
+
+    return array.map(function (value) {
+        return value * value;
+    });
+
+
 }
