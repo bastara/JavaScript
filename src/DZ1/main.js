@@ -18,17 +18,16 @@ console.log(list.slice(list.length - 5));
 
 //•Найдите сумму элементов массива, которые являются четными числами
 var sum = list.reduce(function (previousValue, currentValue) {
-    return previousValue + getEven(currentValue);//тут можно функцию использовать?
+    return previousValue + getEven(currentValue);
     // return previousValue + (currentValue % 2 == 0 ? currentValue : 0);
 });
 
 function getEven(num) {
-    if (num % 2 == 0) {
+    if (num % 2 === 0) {
         return num;
     }
     return 0;
 }
-
 
 console.log("Найдите сумму элементов массива, которые являются четными числами: " + sum);
 console.log();
@@ -58,7 +57,6 @@ function pow2(arr) {//аналогично 48 строчке, встроенны
         if (getEven(arr[i])) {
             array[count] = arr[i] * arr[i];
             count++;
-            // console.log(array[i]);//в яве не желательно использовать функции для вывода на консоль, а тут как?
         }
     }
     return array;

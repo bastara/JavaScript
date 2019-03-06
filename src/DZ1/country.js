@@ -1,6 +1,4 @@
-var country = [];
-
-country[0] = {
+var country = [{
     name: "Russia",
     city: [{
         name: "Moscow",
@@ -18,9 +16,7 @@ country[0] = {
         name: "Kazan",
         population: 1200000
     }]
-};
-
-country[1] = {
+}, {
     name: "Usa",
     city: [{
         name: "Washington",
@@ -38,9 +34,7 @@ country[1] = {
         name: "Ostin",
         population: 900000
     }]
-};
-
-country[2] = {
+}, {
     name: "France",
     city: [{
         name: "Paris",
@@ -52,7 +46,7 @@ country[2] = {
         name: "Tuluza",
         population: 440000
     }]
-};
+}];
 
 // •Найдите страну/страны с максимальным количеством городов
 console.log("Страны с максимальным количеством городов:");
@@ -61,7 +55,6 @@ var countryWithMaxNumberOfCity = getCountryWithMaxNumberOfCity(country);
 countryWithMaxNumberOfCity.forEach(function (item) {
     console.log("Страна: " + item[0] + ". Городов: " + item[1] + ".");
 });
-
 
 // Получите объект с информацией по всем странам такого вида: ключ –название страны, значение –суммарная численность по стране
 var countryInfo = {};
@@ -106,6 +99,3 @@ function getCountryInfo(array) {
         return population;
     }
 }
-
-
-
