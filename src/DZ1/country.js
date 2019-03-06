@@ -54,12 +54,13 @@ country[2] = {
     }]
 };
 
-
-console.log(country.length);
-
 // •Найдите страну/страны с максимальным количеством городов
 console.log("Страны с максимальным количеством городов:");
-getCountryWithMaxNumberOfCity(country);
+var countryWithMaxNumberOfCity = getCountryWithMaxNumberOfCity(country);
+
+countryWithMaxNumberOfCity.forEach(function (item) {
+    console.log("Страна: " + item[0] + ". Городов: " + item[1] + ".");
+});
 
 
 // Получите объект с информацией по всем странам такого вида: ключ –название страны, значение –суммарная численность по стране
@@ -71,41 +72,38 @@ console.log(countryInfo);
 
 function getCountryWithMaxNumberOfCity(array) {
     var count = 0;
-    var i;
-    for (i = 0; i < array.length; i++) {
-        console.log(array.length);
-        if (count < array[i].city.length) {
-            count = array[i].city.length;
+
+    array.forEach(function (e) {
+        if (count < e.city.length) {
+            count = e.city.length;
         }
-    }
+    });
 
     var countCity = [];
-    var n = -1;
-    for (i = 0; i < array.length; i++) {//удалил var перед i, идея ругалась, странно почему в др местах не ругается.
-        if (count === array[i].city.length) {
-            n++;
-            countCity[n] = new Array(2);
-            countCity[n][0] = array[i].name;
-            countCity[n][1] = count;
-        }
-    }
+    var n = 0;
 
-    for (i = 0; i < countCity.length; i++) {
-        console.log("Страна: " + countCity[i][0] + ". Городов: " + countCity[n][1] + ".")
-    }
+    array.forEach(function (e) {
+        if (count === e.city.length) {
+            countCity[n] = new Array(2);
+            countCity[n][0] = e.name;
+            countCity[n][1] = count;
+            n++;
+        }
+    });
+    return countCity;
 }
 
 function getCountryInfo(array) {
+    array.forEach(function (item) {
+        countryInfo[item.name] = getPopulation(item.city);
+    });
+
     function getPopulation(city) {
         var population = 0;
-        for (var i = 0; i < city.length; i++) {
-            population += city[i].population;
-        }
+        city.forEach(function (item) {
+            population += item.population;
+        });
         return population;
-    }
-
-    for (var i = 0; i < array.length; i++) {
-        countryInfo[array[i].name] = getPopulation(array[i].city);
     }
 }
 
