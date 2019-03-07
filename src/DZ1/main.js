@@ -1,6 +1,6 @@
-console.log("Массив чисел");
 //Создайте массив чисел
 var list = [2, 5, 6, 9, 656, 2, -65, 234];
+console.log("Массив чисел");
 console.log(list);
 
 //•Отсортируйте его по убыванию
@@ -20,7 +20,7 @@ console.log(list.slice(list.length - 5));
 var sum = list.reduce(function (previousValue, currentValue) {
     return previousValue + getEven(currentValue);
     // return previousValue + (currentValue % 2 == 0 ? currentValue : 0);
-});
+}, 0);
 
 function getEven(num) {
     if (num % 2 === 0) {
@@ -37,6 +37,7 @@ console.log("Создайте массив чисел от 1 до 100, в так
 var list100 = [];
 getArrayPow2(list100, 100);
 console.log(list100);
+
 //•Получите список квадратов четных чисел из этого массива
 console.log("Получите список квадратов четных чисел из этого массива");
 var arrayNumbersPow2 = pow2(list100);
@@ -51,13 +52,9 @@ function getArrayPow2(arr, n) {
 }
 
 function pow2(arr) {
-    var array = arr.filter(function (elem) {
+    return arr.filter(function (elem) {
         return elem % 2 === 0;
-    });
-
-    return array.map(function (value) {
+    }).map(function (value) {
         return value * value;
     });
-
-
 }

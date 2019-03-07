@@ -1,6 +1,6 @@
-var country = [{
+var countries = [{
     name: "Russia",
-    city: [{
+    cities: [{
         name: "Moscow",
         population: 12500000
     }, {
@@ -18,7 +18,7 @@ var country = [{
     }]
 }, {
     name: "Usa",
-    city: [{
+    cities: [{
         name: "Washington",
         population: 658000
     }, {
@@ -36,7 +36,7 @@ var country = [{
     }]
 }, {
     name: "France",
-    city: [{
+    cities: [{
         name: "Paris",
         population: 2200000
     }, {
@@ -50,45 +50,30 @@ var country = [{
 
 // •Найдите страну/страны с максимальным количеством городов
 console.log("Страны с максимальным количеством городов:");
-var countryWithMaxNumberOfCity = getCountryWithMaxNumberOfCity(country);
+var countryWithMaxNumberOfCity = getCountriesWithMaxNumberOfCity(countries);
+
+function getCountriesWithMaxNumberOfCity(array) {
+    var count = array.reduce(function (prev, current) {
+        return (prev > current.cities.length) ? prev : current.cities.length;
+    }, 0);
+
+    return array.filter(function (elem) {
+        return elem.cities.length === count;
+    }).map(function (value) {
+        return value.name;
+    });
+}
 
 countryWithMaxNumberOfCity.forEach(function (item) {
-    console.log("Страна: " + item[0] + ". Городов: " + item[1] + ".");
+    console.log("Страна: " + item + ".");
 });
 
 // Получите объект с информацией по всем странам такого вида: ключ –название страны, значение –суммарная численность по стране
 var countryInfo = {};
 
-getCountryInfo(country);
-console.log(countryInfo);
-
-
-function getCountryWithMaxNumberOfCity(array) {
-    var count = 0;
-
-    array.forEach(function (e) {
-        if (count < e.city.length) {
-            count = e.city.length;
-        }
-    });
-
-    var countCity = [];
-    var n = 0;
-
-    array.forEach(function (e) {
-        if (count === e.city.length) {
-            countCity[n] = new Array(2);
-            countCity[n][0] = e.name;
-            countCity[n][1] = count;
-            n++;
-        }
-    });
-    return countCity;
-}
-
 function getCountryInfo(array) {
     array.forEach(function (item) {
-        countryInfo[item.name] = getPopulation(item.city);
+        countryInfo[item.name] = getPopulation(item.cities);
     });
 
     function getPopulation(city) {
@@ -99,3 +84,6 @@ function getCountryInfo(array) {
         return population;
     }
 }
+
+getCountryInfo(countries);
+console.log(countryInfo);
