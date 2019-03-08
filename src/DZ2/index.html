@@ -5,20 +5,50 @@
 	<title>DZ2</title>
 </head>
 <body>
-<script src="temp.js"></script>
 <form>
 	<div>
-		<h2><label for="name">Введите температуру в градусах цельсия<br></label>
-			<input type="text" id="name" size="5">
-			<label for="name">C<br></label>
+		<h2><label for="celsius">Введите температуру в градусах цельсия.<br></label>
+			<input type="text" id="celsius" size="5" value="10">
 		</h2>
 	</div>
 	<div>
-		<button type="submit" onclick="getFahrenheitFromCelsius()">Перевести</button>
+		<button type="button" onclick="getFahrenheitFromCelsius()">Перевести</button>
 	</div>
 	<div>
-		<p id="f">Температура в градусах фаренгейта равна =</p>
+		<p id="convert">Температура в градусах фаренгейта равна =</p>
+	</div>
+	<div>
+		<h2><label for="arrowCelsius">Введите температуру в градусах цельсия. Вариант 2<br></label>
+			<!--помню что не желательно здесь применять стили,но раз можно то применил)-->
+			<input style="width: 40px" type="number" id="arrowCelsius" value="36">
+		</h2>
+	</div>
+	<div>
+		<p id="arrowConvert">Температура в градусах фаренгейта равна =</p>
 	</div>
 </form>
+
+
+<img src="../ic_highlight_off_black_18dp.png" height="18" width="18"/>
+<img src="../ic_get_app_black_18dp.png" height="18" width="18"/>
+<img src="../ic_delete_forever_black_18dp.png" height="18" width="18"/>
+<img src="../ic_assignment_return_black_18dp.png" height="18" width="18"/>
+<img src="../ic_assignment_black_18dp.png" height="18" width="18"/>
+<img src="../ic_alarm_black_18dp.png" height="18" width="18"/>
+<div>
+	<ul id="list">
+
+	</ul>
+</div>
+<div>
+	<label for="inputStr">Введите новое значение.<br></label>
+	<input type="text" id="inputStr" size="25">
+</div>
+<div>
+	<br/>
+	<button type="button" onclick="addListElement()">Добавить запись</button>
+</div>
+
+<script src="temp.js"></script>
 </body>
 </html>

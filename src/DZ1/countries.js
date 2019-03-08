@@ -73,7 +73,6 @@ function getCountriesWithMaxNumberOfCity(array) {
 }
 
 function getCountryInfo(array) {
-
     function getPopulation(city) {
         return city.reduce(function (prev, current) {
             return prev + current.population;
