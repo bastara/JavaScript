@@ -57,14 +57,12 @@ countriesWithMaxNumberOfCity.forEach(function (item) {
 });
 
 // Получите объект с информацией по всем странам такого вида: ключ –название страны, значение –суммарная численность по стране
-var countryInfo = {};
-
-getCountryInfo(countries);
+var countryInfo = getCountryInfo(countries);
 console.log(countryInfo);
 
 function getCountriesWithMaxNumberOfCity(array) {
     var count = array.reduce(function (prev, current) {
-        return (prev > current.cities.length) ? prev : current.cities.length;
+        return Math.max(prev, current.cities.length);
     }, 0);
 
     return array.filter(function (elem) {
@@ -75,15 +73,16 @@ function getCountriesWithMaxNumberOfCity(array) {
 }
 
 function getCountryInfo(array) {
+
     function getPopulation(city) {
-        var population = 0;
-        city.forEach(function (item) {
-            population += item.population;
-        });
-        return population;
+        return city.reduce(function (prev, current) {
+            return prev + current.population;
+        }, 0);
     }
 
+    var info = {};
     array.forEach(function (item) {
-        countryInfo[item.name] = getPopulation(item.cities);
+        info[item.name] = getPopulation(item.cities);
     });
+    return info;
 }
