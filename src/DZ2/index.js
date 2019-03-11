@@ -15,11 +15,11 @@ function getFahrenheitFromCelsius() {
     output.innerHTML = "Температура в градусах фаренгейта равна =" + (celsius * 9 / 5 + 32);
 }
 
-var newv = document.getElementById("arrowCelsius");
+var celsius2 = document.getElementById("arrowCelsius");
 var output2 = document.getElementById("arrowConvert");
-output2.innerHTML = "Температура в градусах фаренгейта равна = " + (newv.value * 9 / 5 + 32);
-newv.onchange = function () {
-    output2.innerHTML = "Температура в градусах фаренгейта равна = " + (newv.value * 9 / 5 + 32);
+output2.innerHTML = "Температура в градусах фаренгейта равна = " + (celsius2.value * 9 / 5 + 32);
+celsius2.onchange = function () {
+    output2.innerHTML = "Температура в градусах фаренгейта равна = " + (celsius2.value * 9 / 5 + 32);
 };
 
 function addListElement() {
