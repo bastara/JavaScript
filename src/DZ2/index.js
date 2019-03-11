@@ -9,7 +9,6 @@ var count = 0;
 var update = false;
 var string;
 
-
 function getFahrenheitFromCelsius() {
     var celsius = document.getElementById("celsius").value;
     var output = document.getElementById("convert");
