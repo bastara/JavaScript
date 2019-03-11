@@ -70,7 +70,6 @@ function updateLi(e) {
     cell.id = "scriptBox";
     input.type = "text";
     input.setAttribute("onkeydown", "return runScript(event)");
-    // cell.innerText = "";
     input.value = cell.innerText;
     string = cell.innerText;
     cell.innerText = "";
