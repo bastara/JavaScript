@@ -6,9 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
     var string;
 
     document.getElementById("inputStr").focus();
+    var newTextField = document.getElementById("inputStr");
 
     var buttonAddElement = document.querySelector(".add-element");
     buttonAddElement.addEventListener("click", function () {
+        var text = newTextField.value;
+        if (text === "") {
+            return;
+        }
+
         var newLi = document.createElement("li");
         newLi.id = String(count);
 
@@ -18,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         newTr.classList.add(String(count));
         var newTd1 = document.createElement("td");
         newTd1.style.width = "220px";
-        newTd1.innerHTML = document.getElementById("inputStr").value;
+        newTd1.innerText = text;
         var newTd2 = document.createElement("td");
         newTd2.style.width = "85px";
         var newTd3 = document.createElement("td");
@@ -38,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
         list.appendChild(newLi);
         count++;
         document.getElementById("inputStr").focus();
+        newTextField.value = "";
     });
-
 
     function createButtonDelete(classButton) {
         var buttonDelete = document.createElement("button");
@@ -60,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
         buttonEdit.innerText = "редактировать";
         return buttonEdit;
     }
-
 
     var button = document.getElementById("list");
     button.addEventListener("click", function (e) {
@@ -103,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var cell = document.getElementById(e).querySelector("td");
         string = cell.innerText;
+
         var input = document.createElement("input");
         input.type = "text";
         input.id = "active";
