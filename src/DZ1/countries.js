@@ -60,6 +60,8 @@ countriesWithMaxNumberOfCity.forEach(function (item) {
 var countryInfo = getCountryInfo(countries);
 console.log(countryInfo);
 
+console.log(window.location.href);
+
 function getCountriesWithMaxNumberOfCity(array) {
     var count = array.reduce(function (prev, current) {
         return Math.max(prev, current.cities.length);
